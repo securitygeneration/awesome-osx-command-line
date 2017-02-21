@@ -1065,6 +1065,19 @@ security find-generic-password -D "AirPort network password" -a "SSID" -gw
 networksetup -setairportpower en0 on
 ```
 
+#### Change Airport/Wi-Fi Interface MAC Address
+This allows you to change the MAC address of your Airport/Wi-Fi interface.
+
+Substitute the MAC address below for a MAC address of your choice.
+```bash
+# Disable Airport interface
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -z
+# Change MAC address 
+sudo ifconfig en0 ether 00:11:22:33:44:55
+# Re-enable Airport interface
+networksetup -detectnewhardware
+```
+
 ## Package Managers
 
 - [Fink](http://www.finkproject.org) - The full world of Unix Open Source software for Darwin. A little outdated.
